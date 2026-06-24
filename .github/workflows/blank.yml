@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    runs-on: DESKTOP-T9UC6EQ
+    runs-on: self-hosted
 
    
     steps:
