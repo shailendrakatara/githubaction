@@ -1,5 +1,4 @@
-resource "azure_resource_group" "rg" {
-name = "rg-action"
-location = "eastus"
-
+resource "azurerm_resource_group" "example" {
+  name     = "git-hub"
+  location = "West Europe"
 }
