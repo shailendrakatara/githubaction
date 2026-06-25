@@ -6,9 +6,14 @@ jobs:
     name: deploy to staging
     runs-on: ubuntu-22.04
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Login to Azure
+        uses: hyperskill/azure-login@v3.0.0
         with:
-         node-version: '20.x'
-      - name: Install Dependencies
-        run: npm install
+          # Azure client id
+         client_id: 2f98ae04-67ab-48e7-9634-ab6e9d70d70b
+          # Azure client secret
+         client_secret: smc8Q~ubuO_YP2pCWQM4wbzhtEmFtK-dZ9TZdaMf
+          # Azure subscription id
+         subscription_id: 61fd4d7d-742d-4d50-b08e-7809b23001a1
+          # Azure tenant id
+         tenant_id: 84ce4985-6ead-44e3-8708-7f892d770fdd
