@@ -5,11 +5,15 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-
-   
     steps:
       - uses: actions/checkout@v4
       - name: Run a one-line script
         run: echo Hello, world!
       - name: az login
         run: az login --service-principal --username 2f98ae04-67ab-48e7-9634-ab6e9d70d70b --password smc8Q~ubuO_YP2pCWQM4wbzhtEmFtK-dZ9TZdaMf --tenant 84ce4985-6ead-44e3-8708-7f892d770fdd
+      - name: init
+        run: terraform init
+      - name: plan
+        run: terraform plan
+      - name: apply
+        run: terraform apply-auto-approve
