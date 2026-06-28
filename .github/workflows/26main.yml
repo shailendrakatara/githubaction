@@ -37,6 +37,11 @@ jobs:
     name: terraform command
     runs-on: ubuntu-22.04
     steps:
+      - uses: actions/checkout@v4 
+      - uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: "1.14.6"
+    
       - name: Terraform init
         run: terraform init
         
