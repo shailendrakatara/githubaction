@@ -34,7 +34,7 @@ jobs:
         
   job3:
     needs: job2 
-    name: terraform init
+    name: terraform command
     runs-on: ubuntu-22.04
     steps:
       - name: Terraform init
