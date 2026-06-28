@@ -30,11 +30,11 @@ jobs:
     steps:
       - uses: hashicorp/setup-terraform@v4
         with:
-          terraform_version: "1.14.6"
+          terraform_version: "4.77.0"
         
   job3:
     needs: job2 
-    name: tterraform init
+    name: terraform init
     runs-on: ubuntu-22.04
     steps:
       - name: Terraform init
