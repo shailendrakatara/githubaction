@@ -1,0 +1,63 @@
+on:
+  workflow_dispatch:
+  
+  
+jobs:
+  job1:
+    name: azure login
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Azure login
+        uses: hyperskill/azure-login@v3.0.0
+        with:
+         # Azure client id
+         client_id: 2f98ae04-67ab-48e7-9634-ab6e9d70d70b
+         # Azure client secret
+         client_secret: pYy8Q~9DicsI7HX5~rBjAciOZ6K_OSd~mi4oGbOv
+         # Azure subscription id
+         subscription_id: 61fd4d7d-742d-4d50-b08e-7809b23001a1 
+         # Azure tenant id
+         tenant_id: 84ce4985-6ead-44e3-8708-7f892d770fdd
+          
+          
+          
+          
+          
+  job2:
+    needs: job1 
+    name: terraform install
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: "1.14.6"
+        
+  job3:
+    needs: job2 
+    name: tterraform init
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Terraform init
+        run: terraform init
+        
+      - name: Terraform fmt
+        run: terraform fmt 
+        
+      - name: Terraform validate
+        run: terraform validate
+        
+      - name: Terraform plan
+        run: terraform plan
+        
+      - name: Terraform apply
+        run: terraform apply-auto-approve
+    
+    
+    
+    
+    
+    
+
+    
+    
+  
